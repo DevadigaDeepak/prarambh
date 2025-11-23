@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brahmi - Pure Veg Breakfast Menu</title>
+
+    <!-- Traditional premium fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #faf7f2; /* soft traditional background */
+            font-family: 'Inter', sans-serif;
+            color: #3a2f2a;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 14px;
+            border: 3px solid #d4b06a; /* subtle gold border */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #8d5e2a;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin: 0;
+            color: #8d5e2a; /* heritage brown */
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            font-style: italic;
+            color: #6d583f;
+            margin-top: 6px;
+            font-size: 0.95em;
+        }
+
+        /* Category Title */
+        .category h2 {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(to right, #f9f1dc, #eed9b5);
+            padding: 10px 12px;
+            border-left: 5px solid #8d5e2a;
+            border-radius: 6px;
+            font-size: 1.4em;
+            margin-top: 35px;
+            color: #5e3c16;
+        }
+
+        /* Menu Item */
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #dacdbf;
+        }
+
+        .item-name {
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+
+        .item-price {
+            font-weight: 700;
+            color: #8d5e2a;
+            min-width: 50px;
+            text-align: right;
+        }
+
+        .highlight {
+            color: #b8860b;
+            margin-left: 5px;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            font-size: 0.8em;
+            margin-top: 35px;
+            color: #7a6a5c;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Brahmi</h1>
+            <p>Pure Veg Traditional Breakfast</p>
+        </div>
+
+        <!-- CATEGORY 1 -->
+        <div class="category">
+            <h2>Idli & Vada Specialties</h2>
+            <div class="menu-item"><span class="item-name">Idli</span><span class="item-price">₹ 50</span></div>
+            <div class="menu-item"><span class="item-name">Vada</span><span class="item-price">₹ 60</span></div>
+            <div class="menu-item"><span class="item-name">Idli Vada</span><span class="item-price">₹ 60</span></div>
+            <div class="menu-item"><span class="item-name">Dahi Vada</span><span class="item-price">₹ 60</span></div>
+            <div class="menu-item"><span class="item-name">Ghee Pudi Idli <span class="highlight">(Special)</span></span><span class="item-price">₹ 80</span></div>
+            <div class="menu-item"><span class="item-name">Thatte Idli</span><span class="item-price">₹ 40</span></div>
+            <div class="menu-item"><span class="item-name">Ghee Pudi Thatte Idli <span class="highlight">(Special)</span></span><span class="item-price">₹ 80</span></div>
+            <div class="menu-item"><span class="item-name">Butter Thatte Idli</span><span class="item-price">₹ 65</span></div>
+            <div class="menu-item"><span class="item-name">Butter Pudi Thatte Idli</span><span class="item-price">₹ 80</span></div>
+            <div class="menu-item"><span class="item-name">Sabudana Vada</span><span class="item-price">₹ 60</span></div>
+        </div>
+
+        <!-- CATEGORY 2 -->
+        <div class="category">
+            <h2>Dosa Varieties</h2>
+            <div class="menu-item"><span class="item-name">Plain Dosa</span><span class="item-price">₹ 50</span></div>
+            <div class="menu-item"><span class="item-name">Ghee Plain Dosa</span><span class="item-price">₹ 70</span></div>
+            <div class="menu-item"><span class="item-name">Butter Plain Dosa</span><span class="item-price">₹ 70</span></div>
+            <div class="menu-item"><span class="item-name">Pudi Dosa</span><span class="item-price">₹ 60</span></div>
+            <div class="menu-item"><span class="item-name">Masala Dosa</span><span class="item-price">₹ 60</span></div>
+            <div class="menu-item"><span class="item-name">Ghee Masala Dosa</span><span class="item-price">₹ 80</span></div>
+            <div class="menu-item"><span class="item-name">Butter Masala Dosa</span><span class="item-price">₹ 80</span></div>
+            <div class="menu-item"><span class="item-name">Mysore Masala Dosa</span><span class="item-price">₹ 70</span></div>
+            <div class="menu-item"><span class="item-name">Ghee Pudi Masala Dosa <span class="highlight">(Premium)</span></span><span class="item-price">₹ 90</span></div>
+            <div class="menu-item"><span class="item-name">Mini Set Dosa</span><span class="item-price">₹ 60</span></div>
+            <div class="menu-item"><span class="item-name">Cheese Dosa</span><span class="item-price">₹ 70</span></div>
+        </div>
+
+        <!-- CATEGORY 3 -->
+        <div class="category">
+            <h2>Uttapam Delights</h2>
+            <div class="menu-item"><span class="item-name">Uttapam</span><span class="item-price">₹ 50</span></div>
+            <div class="menu-item"><span class="item-name">Onion Uttapam</span><span class="item-price">₹ 60</span></div>
+            <div class="menu-item"><span class="item-name">Ghee Uttapam</span><span class="item-price">₹ 70</span></div>
+            <div class="menu-item"><span class="item-name">Butter Uttapam</span><span class="item-price">₹ 70</span></div>
+            <div class="menu-item"><span class="item-name">Mini Uttapam</span><span class="item-price">₹ 40</span></div>
+            <div class="menu-item"><span class="item-name">Butter Pudi Uttapam</span><span class="item-price">₹ 80</span></div>
+        </div>
+
+        <!-- CATEGORY 4 -->
+        <div class="category">
+            <h2>Traditional Tiffins</h2>
+            <div class="menu-item"><span class="item-name">Kesari Bath</span><span class="item-price">₹ 50</span></div>
+            <div class="menu-item"><span class="item-name">Lemon Rice</span><span class="item-price">₹ 70</span></div>
+            <div class="menu-item"><span class="item-name">Sweet Pongal</span><span class="item-price">₹ 80</span></div>
+            <div class="menu-item"><span class="item-name">Khara Pongal</span><span class="item-price">₹ 70</span></div>
+            <div class="menu-item"><span class="item-name">Shavige Bath</span><span class="item-price">₹ 70</span></div>
+            <div class="menu-item"><span class="item-name">Sabudana Kichdi</span><span class="item-price">₹ 50</span></div>
+        </div>
+
+        <!-- CATEGORY 5 -->
+        <div class="category">
+            <h2>Snacks & Heavy Bites</h2>
+            <div class="menu-item"><span class="item-name">Buns</span><span class="item-price">₹ 80</span></div>
+            <div class="menu-item"><span class="item-name">Goli Baji</span><span class="item-price">₹ 60</span></div>
+            <div class="menu-item"><span class="item-name">Puri Bhaji</span><span class="item-price">₹ 70</span></div>
+            <div class="menu-item"><span class="item-name">Chole Bhatura <span class="highlight">(North Indian)</span></span><span class="item-price">₹ 90</span></div>
+        </div>
+
+        <!-- CATEGORY 6 -->
+        <div class="category">
+            <h2>Beverages</h2>
+            <div class="menu-item"><span class="item-name">Hot Tea</span><span class="item-price">₹ 20</span></div>
+            <div class="menu-item"><span class="item-name">Filter Coffee</span><span class="item-price">₹ 30</span></div>
+        </div>
+
+        <div class="footer">
+            Please check for today’s specials. All prices are in ₹.
+        </div>
+
+    </div>
+
+</body>
+</html>
