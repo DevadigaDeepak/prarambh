@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRAMHI | Pure Veg South Indian Restaurant</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green:#1f6b42;
+      --gold:#d4af37;
+      --cream:#fffdf6;
+      --dark:#1e1e1e;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      font-family:Poppins,sans-serif;
+      background:var(--cream);
+      color:var(--dark);
+      scroll-behavior:smooth;
+    }
+
+    /* HEADER */
+    header{
+      position:sticky;top:0;z-index:100;
+      background:#fff;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 30px;
+      box-shadow:0 6px 18px rgba(0,0,0,.08);
+    }
+    header img{height:58px}
+    nav a{
+      margin-left:22px;
+      text-decoration:none;
+      font-weight:500;
+      color:#333;
+      position:relative;
+    }
+    nav a::after{
+      content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--gold);
+      transition:.3s
+    }
+    nav a:hover::after{width:100%}
+
+    /* HERO */
+    .hero{
+      height:92vh;
+      background:
+      linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+      url('lunch.jpeg') center/cover;
+      color:#fff;
+      display:flex;align-items:center;justify-content:center;
+      text-align:center;
+      animation:fadeIn 1.2s ease;
+    }
+    .hero h1{
+      font-family:Playfair Display;
+      font-size:3.8rem;
+      letter-spacing:2px;
+      animation:slideUp 1.2s ease;
+    }
+    .hero p{
+      margin-top:10px;
+      font-size:1.25rem;
+      opacity:.95;
+      animation:slideUp 1.5s ease;
+    }
+
+    /* SECTIONS */
+    section{padding:80px 20px}
+    .container{max-width:1200px;margin:auto}
+
+    h2{
+      font-family:Playfair Display;
+      font-size:2.6rem;
+      color:var(--green);
+      margin-bottom:20px;
+    }
+
+    /* ABOUT */
+    .about{
+      display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center
+    }
+    .about img{width:100%;border-radius:22px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+
+    .badge{
+      display:inline-block;margin:8px 6px 0 0;
+      background:#eef5f1;padding:9px 16px;border-radius:30px;
+      font-size:.9rem
+    }
+
+    /* TIMINGS */
+    .timings{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px
+    }
+    .time-box{
+      background:#fff;border-radius:18px;padding:25px;text-align:center;
+      box-shadow:0 8px 25px rgba(0,0,0,.1);
+      transition:.3s
+    }
+    .time-box:hover{transform:translateY(-8px)}
+
+    /* MENU */
+    .menu{background:linear-gradient(#fff,#eef5f1)}
+    .menu-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px
+    }
+    .menu-box{
+      background:#fff;padding:26px;border-radius:22px;
+      box-shadow:0 10px 28px rgba(0,0,0,.12);
+      transition:.3s
+    }
+    .menu-box:hover{transform:translateY(-6px)}
+    .menu-box h3{color:var(--gold);margin-bottom:12px}
+    .menu-item{
+      display:flex;justify-content:space-between;
+      border-bottom:1px dotted #ccc;padding:7px 0
+    }
+
+    /* GALLERY */
+    .gallery{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px
+    }
+    .gallery img{
+      width:100%;height:230px;object-fit:cover;
+      border-radius:20px;box-shadow:0 8px 25px rgba(0,0,0,.15);
+      transition:.4s
+    }
+    .gallery img:hover{transform:scale(1.05)}
+
+    /* CTA */
+    .cta{
+      background:var(--green);color:#fff;text-align:center
+    }
+    .cta a{
+      display:inline-block;margin-top:25px;
+      padding:15px 38px;border-radius:40px;
+      background:linear-gradient(45deg,#f09433,#dc2743,#bc1888);
+      color:#fff;text-decoration:none;font-weight:600
+    }
+
+    footer{
+      background:#111;color:#ccc;text-align:center;padding:30px;font-size:.9rem
+    }
+
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:768px){
+      .about{grid-template-columns:1fr}
+      .hero h1{font-size:2.6rem}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo.jpeg" alt="BRAMHI Logo">
+  <nav>
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div>
+    <h1>BRAMHI</h1>
+    <p>Pure Veg South Indian • Banana Leaf Tradition</p>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container about">
+    <div>
+      <h2>About BRAMHI</h2>
+      <p><b>BRAMHI</b> is a pure vegetarian South Indian restaurant in Kalamboli, Navi Mumbai.
+      We bring authentic flavours, ghee-rich dosas and wholesome banana-leaf meals —
+      prepared fresh every day with care, hygiene and tradition.</p>
+
+      <p>Serving food on banana leaves enhances taste, aids digestion and reflects
+      our commitment to South Indian culture.</p>
+
+      <div class="badge">🌿 100% Pure Veg</div>
+      <div class="badge">🍃 Banana Leaf Meals</div>
+      <div class="badge">🧈 Ghee Rich Dosas</div>
+      <div class="badge">🙏 Traditional Recipes</div>
+    </div>
+    <img src="lunch.jpeg" alt="Banana Leaf Meal">
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Our Timings</h2>
+    <div class="timings">
+      <div class="time-box"><h3>Breakfast</h3><p>8:00 AM – 12:00 PM</p></div>
+      <div class="time-box"><h3>Lunch</h3><p>12:00 PM – 4:00 PM</p></div>
+      <div class="time-box"><h3>Snacks</h3><p>4:00 PM – 8:00 PM</p></div>
+      <div class="time-box"><h3>Dinner</h3><p>8:00 PM – 10:00 PM</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="menu">
+  <div class="container">
+    <h2>Our Menu</h2>
+	<div class="menu-grid">
+<div class='menu-box'><h3>Dosa</h3><div class='menu-item'><span>Benne Masala Dosa</span><span>₹90</span></div><div class='menu-item'><span>Benne Pudi Masala Dosa</span><span>₹100</span></div><div class='menu-item'><span>Ghee Masala Dosa</span><span>₹90</span></div><div class='menu-item'><span>Ghee Pudi Masala Dosa</span><span>₹100</span></div><div class='menu-item'><span>Mysore Masala Dosa</span><span>₹80</span></div><div class='menu-item'><span>Masala Dosa</span><span>₹60</span></div><div class='menu-item'><span>Benne Plain Dosa</span><span>₹80</span></div><div class='menu-item'><span>Ghee Plain Dosa</span><span>₹80</span></div><div class='menu-item'><span>Plain Dosa</span><span>₹50</span></div><div class='menu-item'><span>Garlic Roast Benne Pudi Masala Dosa</span><span>₹110</span></div><div class='menu-item'><span>Garlic Roast Ghee Pudi Masala Dosa</span><span>₹110</span></div><div class='menu-item'><span>Open Benne Pudi Masala Dosa</span><span>₹120</span></div><div class='menu-item'><span>Open Ghee Pudi Masala Dosa</span><span>₹120</span></div><div class='menu-item'><span>Cheese Masala Dosa</span><span>₹70</span></div><div class='menu-item'><span>Cheese Plain Dosa</span><span>₹60</span></div></div><div class='menu-box'><h3>Uttapam</h3><div class='menu-item'><span>Onion Uttapam</span><span>₹60</span></div><div class='menu-item'><span>Tomato Onion Uttapam</span><span>₹60</span></div><div class='menu-item'><span>Sada Uttapam</span><span>₹50</span></div><div class='menu-item'><span>Benne Onion Uttapam</span><span>₹80</span></div><div class='menu-item'><span>Ghee Onion Uttapam</span><span>₹80</span></div></div><div class='menu-box'><h3>Rava & Set Dosa</h3><div class='menu-item'><span>Rava Dosa</span><span>₹70</span></div><div class='menu-item'><span>Rava Pudi Masala Dosa</span><span>₹100</span></div><div class='menu-item'><span>Rava Masala Dosa</span><span>₹90</span></div><div class='menu-item'><span>Cheese Rava Dosa</span><span>₹90</span></div><div class='menu-item'><span>Onion Rava Dosa</span><span>₹80</span></div><div class='menu-item'><span>Set Dosa</span><span>₹60</span></div></div><div class='menu-box'><h3>Hot Beverages</h3><div class='menu-item'><span>Tea</span><span>₹20</span></div><div class='menu-item'><span>Filter Coffee</span><span>₹30</span></div><div class='menu-item'><span>Badam Milk</span><span>₹30</span></div><div class='menu-item'><span>Lemon Tea</span><span>₹20</span></div></div><div class='menu-box'><h3>Today's Special</h3><div class='menu-item'><span>Bisibele Bath</span><span>₹70</span></div><div class='menu-item'><span>Khara Pongal</span><span>₹70</span></div><div class='menu-item'><span>Sweet Pongal</span><span>₹70</span></div><div class='menu-item'><span>Puliyogare</span><span>₹70</span></div><div class='menu-item'><span>Tomato Bath</span><span>₹70</span></div><div class='menu-item'><span>Pulav</span><span>₹70</span></div><div class='menu-item'><span>Shavige Bath</span><span>₹70</span></div><div class='menu-item'><span>Lemon Rice</span><span>₹70</span></div></div>
+</div>
+    <!-- MENU CONTENT SAME AS PREVIOUS VERSION (UNCHANGED AS REQUESTED) -->
+    <!-- Paste the final verified menu-grid here -->
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <h2>Food Gallery</h2>
+    <div class="gallery">
+      <img src="gheepudi.png" alt="Benne Pudi Masala Dosa">
+      <img src="lunch.jpeg" alt="Banana Leaf Lunch">
+	  <img src="idli_vada.png" alt="Idli Vada">
+      <img src="Buns.png" alt="Mangalore Buns">
+      <img src="masaladosa.jpg" alt="Masala Dosa">
+	  <img src="dahivada.jpg" alt="Dahi Vada">
+	  <img src="golibajji.jpg" alt="Goli Bajji">
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="cta">
+  <h2>Visit BRAMHI</h2>
+  <p>📍 Greenscape Eternia, Sector 20, Kalamboli, Navi Mumbai</p>
+  <p>📞 9619718897 | ⏰ 8:00 AM – 10:00 PM</p>
+  <a href="#">Follow us on Instagram</a>
+</section>
+
+<footer>
+  © 2026 BRAMHI Pure Veg South Indian Restaurant
+</footer>
+
+</body>
+</html>
