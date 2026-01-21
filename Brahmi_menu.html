@@ -6,6 +6,8 @@
   <title>BRAMHI | Pure Veg South Indian Tradition</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
     :root {
@@ -27,87 +29,124 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; transition: background-color 0.5s ease; overflow-x: hidden; }
+    
+    /* Standardized Base Font */
+    html { font-size: 16px; scroll-behavior: smooth; }
+    
+    body { 
+      font-family: 'Outfit', sans-serif; 
+      background: var(--bg); 
+      color: var(--text); 
+      line-height: 1.6; 
+      transition: background-color 0.5s ease; 
+      overflow-x: hidden; 
+    }
 
     /* --- NAVIGATION --- */
     nav { 
       position: sticky; top: 0; z-index: 1000; background: var(--bg); 
       display: flex; align-items: center; justify-content: space-between; 
-      padding: 10px 5%; border-bottom: 1px solid var(--border); 
+      padding: 15px 5%; border-bottom: 1px solid var(--border); 
     }
-    nav img { height: 40px; }
-    .nav-right { display: flex; align-items: center; gap: 20px; }
-    .nav-links { display: flex; gap: 15px; }
-    .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+    nav img { height: 45px; }
+    .nav-right { display: flex; align-items: center; gap: 15px; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
     
+    /* Enhanced Call Button for Mobile */
     .call-btn-nav {
-      background: var(--primary); color: white !important; padding: 8px 18px; 
-      border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.8rem;
-      transition: var(--transition); border: 1px solid var(--primary);
+      background: var(--primary); color: white !important; 
+      padding: 10px 22px; border-radius: 50px; 
+      text-decoration: none; font-weight: 600; font-size: 1rem;
+      transition: var(--transition); border: 2px solid var(--primary);
+      display: flex; align-items: center; gap: 8px;
     }
 
     /* --- HERO --- */
-    .hero { height: 50vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('lunch.jpeg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 20px; }
-    .hero h1 { font-family: 'Playfair Display'; font-size: clamp(2.5rem, 8vw, 5rem); font-style: italic; }
+    .hero { height: 60vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('lunch.jpeg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 20px; }
+    .hero h1 { font-family: 'Playfair Display'; font-size: clamp(3rem, 10vw, 5.5rem); font-style: italic; margin-bottom: 10px; }
+    .hero p { font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
 
-    /* --- SERVICES GRID (TIMINGS) --- */
+    /* --- TIMINGS GRID --- */
     .services-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-      background: var(--border); gap: 1px; margin-top: -40px; position: relative; z-index: 10;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+      background: var(--border); gap: 1px; margin-top: -50px; position: relative; z-index: 10;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15); border-radius: 15px; overflow: hidden; margin-left: 5%; margin-right: 5%;
     }
-    .service-item { background: var(--card); padding: 30px 20px; text-align: center; transition: var(--transition); }
-    .service-item h3 { font-family: 'Playfair Display'; font-size: 1.5rem; margin-bottom: 5px; }
-    .service-item .time { color: var(--accent); font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; }
+    .service-item { background: var(--card); padding: 35px 20px; text-align: center; }
+    .service-item h3 { font-family: 'Playfair Display'; font-size: 1.6rem; margin: 10px 0; }
+    .service-item .time { color: var(--accent); font-weight: 600; font-size: 0.95rem; }
 
-    .container { max-width: 1200px; margin: auto; padding: 60px 20px; }
-    .section-tag { color: var(--accent); text-transform: uppercase; letter-spacing: 3px; font-weight: 600; font-size: 0.7rem; text-align: center; display: block; }
-    .section-title { font-family: 'Playfair Display'; font-size: 2.5rem; text-align: center; margin: 5px 0 40px; }
+    .container { max-width: 1100px; margin: auto; padding: 80px 20px; }
+    .section-tag { color: var(--accent); text-transform: uppercase; letter-spacing: 4px; font-weight: 600; font-size: 0.8rem; text-align: center; display: block; margin-bottom: 10px; }
+    .section-title { font-family: 'Playfair Display'; font-size: clamp(2.2rem, 5vw, 3rem); text-align: center; margin-bottom: 50px; }
+
+    /* --- GALLERY --- */
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 30px 0; }
+    .gallery-item { border-radius: 15px; overflow: hidden; height: 220px; border: 1px solid var(--border); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .gallery-item:hover img { transform: scale(1.1); }
 
     /* --- LEAF STORY --- */
-    .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-    .leaf-img { width: 100%; border-radius: 25px; }
+    .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .leaf-img { width: 100%; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .split-section p { font-size: 1.1rem; margin-bottom: 20px; opacity: 0.9; }
 
     /* --- MENU --- */
-    .menu-accordion { max-width: 800px; margin: auto; }
-    .accordion-btn { width: 100%; background: var(--card); border: 1px solid var(--border); padding: 18px; text-align: left; font-size: 1.1rem; font-family: 'Playfair Display'; cursor: pointer; display: flex; justify-content: space-between; border-radius: 10px; margin-bottom: 8px; color: var(--text); }
-    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding: 0 10px; }
-    .menu-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed var(--border); font-size: 0.95rem; }
-    .menu-item span:last-child { color: var(--accent); font-weight: 600; }
+    .menu-accordion { max-width: 850px; margin: auto; }
+    .accordion-btn { 
+      width: 100%; background: var(--card); border: 1px solid var(--border); 
+      padding: 22px; text-align: left; font-size: 1.2rem; font-family: 'Playfair Display'; 
+      cursor: pointer; display: flex; justify-content: space-between; 
+      border-radius: 12px; margin-bottom: 12px; color: var(--text);
+    }
+    .menu-item { display: flex; justify-content: space-between; padding: 15px 5px; border-bottom: 1px dashed var(--border); font-size: 1.05rem; }
 
     /* --- REVIEWS --- */
-    .reviews-section { background: var(--primary); color: white; padding: 80px 20px; border-radius: 40px 40px 0 0; }
-    .slider-container { max-width: 800px; margin: auto; position: relative; height: 180px; overflow: hidden; }
-    .review-slide { position: absolute; width: 100%; opacity: 0; transition: opacity 0.8s; text-align: center; }
+    .reviews-section { background: var(--primary); color: white; padding: 100px 20px; border-radius: 50px 50px 0 0; }
+    .slider-container { max-width: 800px; margin: auto; position: relative; height: 200px; display: flex; align-items: center; }
+    .review-slide { position: absolute; width: 100%; opacity: 0; transition: opacity 0.8s; text-align: center; font-size: 1.2rem; line-height: 1.8; }
     .review-slide.active { opacity: 1; position: relative; }
 
-    .theme-toggle { position: fixed; bottom: 30px; left: 30px; z-index: 2000; background: var(--accent); border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; }
-    .whatsapp-float { position: fixed; bottom: 30px; right: 30px; z-index: 2000; background: #25D366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    /* --- FLOATING ACTIONS --- */
+    .theme-toggle { position: fixed; bottom: 100px; right: 25px; z-index: 2000; background: var(--accent); border: none; width: 55px; height: 55px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+    
+    .whatsapp-float { 
+      position: fixed; bottom: 30px; right: 25px; z-index: 2000; 
+      background: #25D366; color: white; padding: 15px 25px; 
+      border-radius: 50px; text-decoration: none; font-weight: 600; 
+      display: flex; align-items: center; gap: 10px; 
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3); font-size: 1.1rem; 
+    }
 
+    .insta-btn { display: inline-block; background: var(--accent); color: #000; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-top: 20px; font-size: 1rem; }
+
+    /* --- MOBILE OPTIMIZATION --- */
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .nav-right { width: 100%; justify-content: flex-end; }
+      .call-btn-nav { padding: 8px 15px; font-size: 0.9rem; }
+      .services-grid { grid-template-columns: 1fr 1fr; margin-top: 0; margin-left: 15px; margin-right: 15px; }
       .split-section { grid-template-columns: 1fr; text-align: center; }
-      .slider-container { height: 280px; }
-      .services-grid { grid-template-columns: 1fr 1fr; margin-top: 0; }
+      .slider-container { height: 320px; }
+      .section-title { font-size: 2.2rem; }
+      .container { padding: 60px 20px; }
     }
-	/* --- GALLERY --- */
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin: 20px 0; }
-    .gallery-item { border-radius: 10px; overflow: hidden; height: 160px; border: 1px solid var(--border); }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-	/* --- BUTTONS & FLOATS --- */
-    .insta-btn { display: inline-block; background: var(--accent); color: #000; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; margin-top: 20px; }
-    
   </style>
 </head>
 <body data-theme="dark">
 
-<button class="theme-toggle" onclick="toggleTheme()">🌓</button>
-<a href="https://wa.me/919619718897" class="whatsapp-float"><span>WhatsApp</span></a>
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">🌓</button>
+<a href="https://wa.me/919619718897" class="whatsapp-float">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="24" height="24" alt="WA">
+  <span>WhatsApp</span>
+</a>
 
 <nav>
   <img src="logo.jpeg" alt="BRAMHI">
   <div class="nav-right">
     <div class="nav-links">
+      <a href="#gallery">Gallery</a>
       <a href="#menu">Menu</a>
       <a href="#reviews">Reviews</a>
     </div>
@@ -116,13 +155,13 @@
 </nav>
 
 <div class="hero">
-  <div>
+  <div data-aos="zoom-out" data-aos-duration="1500">
     <h1>BRAMHI</h1>
     <p>Authentic • Pure Veg • Banana Leaf</p>
   </div>
 </div>
 
-<section id="timings" class="services-grid">
+<section id="timings" class="services-grid" data-aos="fade-up">
   <div class="service-item">
     <p class="section-tag">Healthy</p>
     <h3>Breakfast</h3>
@@ -144,31 +183,33 @@
     <p class="time">08:00 PM — 10:00 PM</p>
   </div>
 </section>
+
 <section id="gallery" class="container">
-  <p class="section-tag">Visual Journey</p>
-  <h2 class="section-title">Our <span>Kitchen</span> Highlights</h2>
+  <p class="section-tag" data-aos="fade-up">Visual Journey</p>
+  <h2 class="section-title" data-aos="fade-up">Our <span>Kitchen</span> Highlights</h2>
   <div class="gallery-grid">
-    <div class="gallery-item"><img src="masaladosa.jpg" alt="Dosa"></div>
-    <div class="gallery-item"><img src="idli_vada.png" alt="Idli Vada"></div>
-    <div class="gallery-item"><img src="gheepudi.png" alt="Ghee Pudi"></div>
-    <div class="gallery-item"><img src="lunch.jpeg" alt="Banana Leaf Lunch"></div>
+    <div class="gallery-item" data-aos="flip-left"><img src="masaladosa.jpg" alt="Dosa"></div>
+    <div class="gallery-item" data-aos="flip-left" data-aos-delay="100"><img src="idli_vada.png" alt="Idli Vada"></div>
+    <div class="gallery-item" data-aos="flip-left" data-aos-delay="200"><img src="gheepudi.png" alt="Ghee Pudi"></div>
+    <div class="gallery-item" data-aos="flip-left" data-aos-delay="300"><img src="lunch.jpeg" alt="Lunch"></div>
   </div>
-  <div style="text-align: center;">
+  <div style="text-align: center;" data-aos="fade-up">
     <a href="https://www.Instagram.com/bramhi_navi_mumbai" class="insta-btn">Follow us on Instagram</a>
   </div>
 </section>
+
 <section id="about" class="container split-section">
-  <div>
+  <div data-aos="fade-right">
     <img src="lunch.jpeg" class="leaf-img" alt="Bramhi Meal">
   </div>
-  <div>
+  <div data-aos="fade-left">
     <p class="section-tag">Our Heritage</p>
-    <h2 class="section-title" style="text-align: left; margin-bottom: 15px;">The Art of <span>Banana Leaf</span></h2>
-    <p>Every meal at BRAMHI is served on a natural banana leaf—a tradition that infuses food with antioxidants and a unique aroma. We use 100% pure ghee and hand-ground masalas.</p>
+    <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">The Art of <span>Banana Leaf</span></h2>
+    <p>Every meal at BRAMHI is served on a natural banana leaf—a tradition that infuses food with antioxidants and a unique aroma. We use 100% pure ghee and hand-ground masalas for that authentic Kundapura flavour.</p>
   </div>
 </section>
 
-<section id="menu" class="container">
+<section id="menu" class="container" data-aos="fade-up">
   <p class="section-tag">Pure Veg Menu</p>
   <h2 class="section-title">Master Menu</h2>
   <div class="menu-accordion">
@@ -178,32 +219,33 @@
       <div class="menu-item"><span>Benne Pudi Masala Dosa</span><span>₹100</span></div>
       <div class="menu-item"><span>Ghee Masala Dosa</span><span>₹90</span></div>
       <div class="menu-item"><span>Ghee Pudi Masala Dosa</span><span>₹100</span></div>
-      <div class="menu-item"><span>Mysore Masala Dosa</span><span>₹80</span></div>
-      <div class="menu-item"><span>Masala Dosa</span><span>₹60</span></div>
       <div class="menu-item"><span>Garlic Roast Benne Pudi</span><span>₹110</span></div>
-      <div class="menu-item"><span>Open Ghee Pudi Masala</span><span>₹120</span></div>
       <div class="menu-item"><span>Cheese Masala Dosa</span><span>₹70</span></div>
       <div class="menu-item"><span>Plain Dosa</span><span>₹50</span></div>
     </div>
+    
     <button class="accordion-btn" onclick="toggleAcc(this)">Uttapam <span>+</span></button>
     <div class="accordion-content">
       <div class="menu-item"><span>Onion Uttapam</span><span>₹60</span></div>
       <div class="menu-item"><span>Tomato Onion Uttapam</span><span>₹60</span></div>
       <div class="menu-item"><span>Benne Onion Uttapam</span><span>₹80</span></div>
     </div>
+
     <button class="accordion-btn" onclick="toggleAcc(this)">Rava & Set Dosa <span>+</span></button>
     <div class="accordion-content">
       <div class="menu-item"><span>Rava Dosa</span><span>₹70</span></div>
       <div class="menu-item"><span>Rava Pudi Masala Dosa</span><span>₹100</span></div>
       <div class="menu-item"><span>Set Dosa</span><span>₹60</span></div>
     </div>
-    <button class="accordion-btn" onclick="toggleAcc(this)">Today's Special Rice <span>+</span></button>
+
+    <button class="accordion-btn" onclick="toggleAcc(this)">Rice Specials <span>+</span></button>
     <div class="accordion-content">
       <div class="menu-item"><span>Bisibele Bath</span><span>₹70</span></div>
       <div class="menu-item"><span>Khara Pongal</span><span>₹70</span></div>
       <div class="menu-item"><span>Puliyogare / Lemon Rice</span><span>₹70</span></div>
     </div>
-    <button class="accordion-btn" onclick="toggleAcc(this)">Hot Beverages <span>+</span></button>
+
+    <button class="accordion-btn" onclick="toggleAcc(this)">Beverages <span>+</span></button>
     <div class="accordion-content">
       <div class="menu-item"><span>Filter Coffee</span><span>₹30</span></div>
       <div class="menu-item"><span>Tea</span><span>₹20</span></div>
@@ -212,34 +254,42 @@
   </div>
 </section>
 
-<section id="reviews" class="reviews-section">
+<section id="reviews" class="reviews-section" data-aos="zoom-in">
   <div class="container">
     <p class="section-tag" style="color: var(--accent);">Guest Feedback</p>
     <div class="slider-container">
       <div class="review-slide active">
-        <p>"Breakfast at Bramhi feels like home. The traditional preparation on banana leaves make every bite memorable."</p>
-        <strong>— Sandhya Rani</strong>
+        <p>"Breakfast at Bramhi feels like home. The traditional preparation on banana leaves make every bite memorable. Best South Indian in Kalamboli!"</p>
+        <strong style="display:block; margin-top:15px; color: var(--accent);">— Sandhya Rani</strong>
       </div>
       <div class="review-slide">
-        <p>"Perfect breakfast spot. Very hygienic and the service is always with a smile. Best Filter Coffee in Navi Mumbai!"</p>
-        <strong>— Anjali P.</strong>
+        <p>"Perfect breakfast spot. Very hygienic and the service is always with a smile. The Filter Coffee is absolutely world-class!"</p>
+        <strong style="display:block; margin-top:15px; color: var(--accent);">— Anjali P.</strong>
       </div>
     </div>
   </div>
 </section>
 
-<section id="contact" class="container" style="text-align:center;">
+<section id="contact" class="container" style="text-align:center;" data-aos="fade-up">
   <p class="section-tag">Find Us</p>
   <h2 class="section-title">Kalamboli, Navi Mumbai</h2>
-  <p>📍 Greenscape Eternia, Sector 20</p>
-  <a href="https://www.Instagram.com/bramhi_navi_mumbai" class="call-btn-nav" style="display:inline-block; margin-top:20px;">Instagram Page</a>
+  <p style="font-size: 1.2rem;">📍 Greenscape Eternia, Sector 20</p>
+  <p style="font-size: 1.2rem; margin-top: 10px;">📞 9619718897</p>
 </section>
 
-<footer style="padding:40px; text-align:center; opacity:0.6; font-size: 0.8rem;">
-  © 2026 BRAMHI PURE VEG SOUTH INDIAN RESTAURANT
+<footer style="padding:60px 20px; text-align:center; opacity:0.7; font-size: 0.9rem; border-top: 1px solid var(--border);">
+  © 2026 BRAMHI PURE VEG SOUTH INDIAN RESTAURANT • Kalamboli
 </footer>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
+  // Initialize Animations
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+  });
+
   function toggleTheme() {
     const b = document.body;
     b.dataset.theme = (b.dataset.theme === 'light') ? 'dark' : 'light';
@@ -249,9 +299,15 @@
     const content = btn.nextElementSibling;
     const isVisible = content.style.maxHeight;
     document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
-    if (!isVisible) { content.style.maxHeight = content.scrollHeight + "px"; }
+    document.querySelectorAll('.accordion-btn span').forEach(s => s.innerText = '+');
+    
+    if (!isVisible) { 
+      content.style.maxHeight = content.scrollHeight + "px"; 
+      btn.querySelector('span').innerText = '-';
+    }
   }
 
+  // Review Slider
   let currentSlide = 0;
   const slides = document.querySelectorAll('.review-slide');
   setInterval(() => {
