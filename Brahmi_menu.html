@@ -21,10 +21,8 @@
   color: white;
   text-align: center;
   position: relative;
-
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
 
 /* MOBILE HERO FIX */
@@ -39,14 +37,6 @@
     padding: 14px 18px;
   }
 }
-
-    @keyframes bgChange {
-      10% { background-image: url('images/lunch.png'); }
-      25% { background-image: url('images/idli_vada.png'); }
-      50% { background-image: url('images/Thatteidli.jpeg'); }
-      75% { background-image: url('images/bennedosa.jpeg'); }
-      100% { background-image: url('images/Buns.png'); }
-    }
 
     .hero h1 { font-size: 3rem; background: rgba(0,0,0,0.5); padding: 20px 40px; border-radius: 12px; }
 
@@ -335,19 +325,37 @@ box-shadow:0 8px 20px rgba(0,0,0,.2);transition:.3s;
     <p>Location: Your Address Here</p>
     <p>Phone: +91 XXXXX XXXXX</p>
   </section>
+<script>
+  const hero = document.querySelector(".hero");
 
-  <script>
-    const aboutText = document.getElementById('aboutText');
+  const images = [
+    "images/lunch.png",
+    "images/idli_vada.png",
+    "images/Thatteidli.jpeg",
+    "images/bennedosa.jpeg",
+    "images/Buns.png"
+  ];
 
-    window.addEventListener('scroll', () => {
-      const rect = aboutText.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        aboutText.classList.add('visible');
-      }
-    });
+  let i = 0;
 
-  </script>
+  function changeHeroBg() {
+    hero.style.backgroundImage = `url('${images[i]}')`;
+    i = (i + 1) % images.length;
+  }
+
+  // set first image immediately
+  changeHeroBg();
+
+  // rotate every 4 seconds
+  setInterval(changeHeroBg, 4000);
+
+  // 🔥 important fix for mobile back navigation
+  window.addEventListener("pageshow", changeHeroBg);
+</script>
+
+ 
 </body>
 </html>
+
 
 
