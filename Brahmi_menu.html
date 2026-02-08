@@ -37,14 +37,27 @@
 .hero-bg {
   position: absolute;
   inset: 0;
+
   background-size: cover;
-  background-position: center;
+  background-position: center center;   /* safe focal point */
   background-repeat: no-repeat;
-  transition: opacity 1.5s ease-in-out;
+
+  transition: opacity 1.5s ease-in-out,
+              transform 8s ease-in-out; /* cinematic zoom */
+
+  transform: scale(1);  /* start zoom level */
 }
+
 
 .hero-bg-1 { z-index: 0; }
 .hero-bg-2 { z-index: 1; opacity: 0; }
+@keyframes cinematicZoom {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.12); }  /* gentle zoom */
+}
+.hero-bg.active {
+  animation: cinematicZoom 8s ease-in-out forwards;
+}
 
 /* MOBILE HERO FIX */
 @media (max-width: 768px) {
@@ -356,8 +369,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let i = 0;
   let showingFirst = true;
 
-  /* set initial image */
+  // initial image
   bg1.style.backgroundImage = `url('${images[0]}')`;
+  bg1.classList.add("active");
 
   function changeHeroBg() {
     i = (i + 1) % images.length;
@@ -366,24 +380,31 @@ document.addEventListener("DOMContentLoaded", () => {
       bg2.style.backgroundImage = `url('${images[i]}')`;
       bg2.style.opacity = 1;
       bg1.style.opacity = 0;
+
+      bg2.classList.add("active");
+      bg1.classList.remove("active");
     } else {
       bg1.style.backgroundImage = `url('${images[i]}')`;
       bg1.style.opacity = 1;
       bg2.style.opacity = 0;
+
+      bg1.classList.add("active");
+      bg2.classList.remove("active");
     }
 
     showingFirst = !showingFirst;
   }
 
-  setInterval(changeHeroBg, 4000);
+  setInterval(changeHeroBg, 5000);
 
-  /* mobile back navigation repaint fix */
+  // mobile back navigation repaint fix
   window.addEventListener("pageshow", changeHeroBg);
 });
 </script>
 
 </body>
 </html>
+
 
 
 
