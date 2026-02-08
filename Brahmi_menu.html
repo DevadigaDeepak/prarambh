@@ -12,33 +12,44 @@
 
     section { padding: 80px 20px; }
 
-    /* HERO */
-    .hero {
+  .hero {
+  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   text-align: center;
+  overflow: hidden;
+}
+
+/* hero title */
+.hero h1 {
   position: relative;
+  z-index: 2;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  background: rgba(0,0,0,0.5);
+  padding: 20px 40px;
+  border-radius: 12px;
+}
+
+/* layered fading backgrounds */
+.hero-bg {
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 1.5s ease-in-out;
 }
+
+.hero-bg-1 { z-index: 0; }
+.hero-bg-2 { z-index: 1; opacity: 0; }
 
 /* MOBILE HERO FIX */
 @media (max-width: 768px) {
-  .hero {
-    min-height: 85vh;          /* avoid extreme zoom */
-    background-position: center top;  /* show top part of image */
-  }
-
-  .hero h1 {
-    font-size: clamp(1.6rem, 6vw, 2.2rem);
-    padding: 14px 18px;
-  }
+  .hero { min-height: 85vh; }
 }
-
-    .hero h1 { font-size: 3rem; background: rgba(0,0,0,0.5); padding: 20px 40px; border-radius: 12px; }
 
     /* ABOUT */
     .about { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
@@ -251,8 +262,11 @@ box-shadow:0 8px 20px rgba(0,0,0,.2);transition:.3s;
 
   <!-- HERO -->
   <section class="hero">
-    <h1>Bramhi Pure Veg Restaurant</h1>
-  </section>
+  <div class="hero-bg hero-bg-1"></div>
+  <div class="hero-bg hero-bg-2"></div>
+
+  <h1>Bramhi Pure Veg Restaurant</h1>
+</section>
 
   <!-- ABOUT -->
   <section class="about">
@@ -326,7 +340,10 @@ box-shadow:0 8px 20px rgba(0,0,0,.2);transition:.3s;
     <p>Phone: +91 XXXXX XXXXX</p>
   </section>
 <script>
-  const hero = document.querySelector(".hero");
+document.addEventListener("DOMContentLoaded", () => {
+
+  const bg1 = document.querySelector(".hero-bg-1");
+  const bg2 = document.querySelector(".hero-bg-2");
 
   const images = [
     "images/lunch.png",
@@ -337,35 +354,37 @@ box-shadow:0 8px 20px rgba(0,0,0,.2);transition:.3s;
   ];
 
   let i = 0;
+  let showingFirst = true;
+
+  /* set initial image */
+  bg1.style.backgroundImage = `url('${images[0]}')`;
 
   function changeHeroBg() {
-    hero.style.backgroundImage = `url('${images[i]}')`;
     i = (i + 1) % images.length;
+
+    if (showingFirst) {
+      bg2.style.backgroundImage = `url('${images[i]}')`;
+      bg2.style.opacity = 1;
+      bg1.style.opacity = 0;
+    } else {
+      bg1.style.backgroundImage = `url('${images[i]}')`;
+      bg1.style.opacity = 1;
+      bg2.style.opacity = 0;
+    }
+
+    showingFirst = !showingFirst;
   }
 
-  // set first image immediately
-  changeHeroBg();
-
-  // rotate every 4 seconds
   setInterval(changeHeroBg, 4000);
 
-  // 🔥 important fix for mobile back navigation
+  /* mobile back navigation repaint fix */
   window.addEventListener("pageshow", changeHeroBg);
+});
 </script>
-<script>
-    const aboutText = document.getElementById('aboutText');
 
-    window.addEventListener('scroll', () => {
-      const rect = aboutText.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        aboutText.classList.add('visible');
-      }
-    });
-
-  </script>
- 
 </body>
 </html>
+
 
 
 
