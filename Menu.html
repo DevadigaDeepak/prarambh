@@ -11,10 +11,9 @@
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Poppins',sans-serif;background:#f4f6f3}
 
-    /* HEADER */
     header{
       background:white;
-      padding:16px 40px;
+      padding:14px 20px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -27,16 +26,12 @@
       color:#2e7d32;
       font-weight:600;
       border:2px solid #2e7d32;
-      padding:6px 18px;
+      padding:6px 14px;
       border-radius:30px;
-      transition:.3s;
     }
 
-    header a:hover{background:#2e7d32;color:white}
-
-    /* HERO BANNER */
     .hero{
-      height:260px;
+      height:220px;
       background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('images/lunch.png') center/cover;
       display:flex;
       align-items:center;
@@ -45,81 +40,93 @@
       text-align:center;
     }
 
-    .hero h1{font-size:2.5rem;letter-spacing:1px}
+    .hero h1{font-size:clamp(1.8rem,5vw,2.6rem)}
 
-    /* FULL WIDTH LAYOUT */
     .page{
       display:grid;
       grid-template-columns:260px 1fr 260px;
       gap:30px;
       max-width:1400px;
-      margin:40px auto;
-      padding:0 20px;
+      margin:30px auto;
+      padding:0 16px;
     }
 
-    /* SIDE PANELS */
     .side{
       background:white;
       border-radius:18px;
-      padding:20px;
+      padding:18px;
       box-shadow:0 10px 25px rgba(0,0,0,.08);
       height:fit-content;
-      position:sticky;
-      top:100px;
     }
 
-    .side h3{color:#2e7d32;margin-bottom:10px}
-    .side p{font-size:14px;line-height:1.6;color:#555}
+    .side h3{color:#2e7d32;margin-bottom:8px}
+    .side p{font-size:15px;line-height:1.6;color:#555}
 
-    /* MENU CENTER */
-    .menu{
-      display:flex;
-      flex-direction:column;
-      gap:30px;
-    }
+    .menu{display:flex;flex-direction:column;gap:24px}
 
     .section{
       background:white;
-      border-radius:20px;
+      border-radius:18px;
       overflow:hidden;
-      box-shadow:0 12px 28px rgba(0,0,0,.08);
+      box-shadow:0 10px 24px rgba(0,0,0,.08);
     }
 
-    .section img{
-      width:100%;
-      height:240px;
-      object-fit:cover;
-    }
+    .section img{width:100%;height:200px;object-fit:cover}
 
-    .content{padding:24px}
+    .content{padding:18px}
 
-    .title{
-      font-size:1.6rem;
-      color:#2e7d32;
-      margin-bottom:10px;
-    }
+    .title{font-size:1.4rem;color:#2e7d32;margin-bottom:8px}
 
-    .item{
-      display:flex;
-      justify-content:space-between;
-      padding:10px 0;
-      border-bottom:1px solid #eee;
-      font-size:15px;
-    }
-
+    .item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee;font-size:1.05rem}
     .item:last-child{border:none}
 
     .price{font-weight:600;color:#2e7d32}
 
-    /* CONTACT FOOTER */
-    .contact{
-      margin-top:50px;
-      text-align:center;
-      padding:40px 20px;
-      background:#2e7d32;
-      color:white;
+    .contact{margin-top:40px;padding:30px 20px;background:#2e7d32;color:white;text-align:left}
+
+    /* MOBILE */
+    @media(max-width:1000px){
+      .page{grid-template-columns:1fr}
+      .side{order:2}
     }
-	
+
+    @media(max-width:600px){
+      .hero{height:180px}
+      .item{font-size:1rem}
+      .title{font-size:1.3rem}
+      .side p{font-size:14px}
+    }
+
+    /* FLOAT CONTACT */
+    .contact-float{
+      position:fixed;
+      right:14px;
+      bottom:14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      z-index:999;
+    }
+
+    .contact-btn{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      color:white;
+      text-decoration:none;
+      font-size:14px;
+      font-weight:500;
+      box-shadow:0 10px 25px rgba(0,0,0,.25);
+    }
+
+    .whatsapp{background:linear-gradient(135deg,#25D366,#128C7E)}
+    .insta{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4)}
+
+    @media(max-width:480px){
+      .contact-btn span.text{display:none}
+    }
 	/* FLOATING COMBO ANIMATION */
     .combo{
       margin-top:20px;
@@ -146,18 +153,12 @@
       0%,100%{transform:translateY(0)}
       50%{transform:translateY(-6px)}
     }
-	
-    /* MOBILE */
-    @media(max-width:1000px){
-      .page{grid-template-columns:1fr}
-      .side{position:static}
-    }
   </style>
 </head>
 <body>
 
 <header>
-  <a href="Brahmi_menu.html">← Home</a>
+  <a href="index.html">← Home</a>
   <strong style="color:#2e7d32">Bramhi Menu</strong>
 </header>
 
@@ -167,11 +168,10 @@
 
 <div class="page">
 
-  <!-- LEFT INFO PANEL -->
   <div class="side">
     <h3>Why Bramhi?</h3>
     <p>Pure vegetarian food prepared with traditional recipes, fresh ingredients, and homely taste served on banana leaf.</p>
-	
+
 	<div class="combo">
       <h3>Special Combos</h3>
       <div class="combo-item">Mini Combo <span>₹99</span></div>
@@ -180,7 +180,6 @@
     </div>
   </div>
 
-  <!-- CENTER MENU -->
   <div class="menu">
 
     <div class="section">
@@ -267,13 +266,12 @@
 
   </div>
 
-  <!-- RIGHT INFO PANEL -->
   <div class="side">
     <h3>Timings</h3>
-    <p>Breakfast: 7:00 AM – 11:30 AM<br>Lunch: 12:00 PM – 3:30 PM<br>Dinner: 6:30 PM – 10:00 PM</p>
+    <p>Breakfast: 7:30 AM – 12 PM<br>Lunch: 12:00 PM – 3:30 PM<br>Snacks: 3:30 PM – 6:30 PM<br>Dinner: 6:30 PM – 10:30 PM</p>
     <br>
     <h3>Contact</h3>
-    <p>📍 Your Address Here<br>📞 +91 XXXXX XXXXX</p>
+    <p>📍 Your Address Here<br>📞 +91 9619718897</p>
   </div>
 
 </div>
@@ -283,6 +281,16 @@
   <p>Fresh • Pure • Authentic South Indian Food</p>
 </div>
 
+<!-- FLOAT CONTACT -->
+<div class="contact-float">
+  <a href="https://wa.me/919619718897" class="contact-btn whatsapp" target="_blank">
+    <span>💬</span><span class="text">WhatsApp</span>
+  </a>
+
+  <a href="https://instagram.com/" class="contact-btn insta" target="_blank">
+    <span>📸</span><span class="text">Instagram</span>
+  </a>
+</div>
+
 </body>
 </html>
-
